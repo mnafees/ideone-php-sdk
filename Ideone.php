@@ -67,7 +67,7 @@ class Ideone {
 							   $private );
 
 		if ( $result['error'] == 'OK' ) {
-			$this->link = $array['link'];
+			$this->link = $result['link'];
 		}
 
 		return $result;
@@ -127,10 +127,10 @@ class Ideone {
 		$array = $this->getLanguages();
                 $values = array_values( $array['languages'] );
                 $keys = array_keys( $array['languages'] );
+                
 		for ( $i = 0; $i < sizeof( $array['languages'] ); ++$i ) {
                     if( preg_match( "/\b" . $language . "\b/i", $values[$i] ) ) {
                         return $keys[ $i ];
-                        exit();
                     }
                 }
 	}
